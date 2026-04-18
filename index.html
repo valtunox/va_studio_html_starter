@@ -3,63 +3,192 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Invoice · VA Studio</title>
+  <title>Invoice INV-2026-004 — Northwind Systems</title>
+  <meta name="description" content="Professional invoice template." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="page">
-    <header class="invoice-header">
-      <div>
-        <h1>Invoice</h1>
-        <p class="muted">#INV-2026-001</p>
+  <!-- Action bar (excluded from print) -->
+  <div class="actions no-print">
+    <div class="actions-inner">
+      <a href="#" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to invoices
+      </a>
+      <div class="actions-right">
+        <button type="button" class="btn btn-outline">Email to client</button>
+        <button type="button" class="btn btn-outline" onclick="window.print()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z" stroke="currentColor" stroke-width="1.5"/></svg>
+          Print
+        </button>
+        <button type="button" class="btn btn-primary">Download PDF</button>
       </div>
-      <div class="brand">Your Company</div>
+    </div>
+  </div>
+
+  <!-- Invoice sheet -->
+  <main class="page">
+    <!-- Header -->
+    <header class="sheet-head">
+      <div class="brand-block">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20V4h4l8 12V4h4v16h-4L8 8v12H4z" fill="currentColor"/></svg>
+        </div>
+        <div class="brand-name">Northwind Systems</div>
+        <div class="brand-tag">Operations Platform</div>
+      </div>
+      <div class="invoice-meta">
+        <div class="meta-row">
+          <span class="meta-label">Invoice</span>
+          <span class="meta-value mono">INV-2026-004</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Issued</span>
+          <span class="meta-value">April 5, 2026</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Due</span>
+          <span class="meta-value">April 19, 2026</span>
+        </div>
+        <div class="meta-row status-row">
+          <span class="status-chip">Unpaid</span>
+        </div>
+      </div>
     </header>
 
-    <section class="grid two">
+    <!-- Parties -->
+    <section class="parties">
+      <div class="party">
+        <div class="party-label">From</div>
+        <div class="party-name">Northwind Systems, Inc.</div>
+        <address>
+          412 Hudson Street, Suite 300<br />
+          New York, NY 10014 · USA<br />
+          finance@northwind.com<br />
+          EIN 87-1234567
+        </address>
+      </div>
+      <div class="party">
+        <div class="party-label">Billed to</div>
+        <div class="party-name">Meridian Health Group</div>
+        <address>
+          Attn: Elena Moreno<br />
+          2200 Market St, Floor 14<br />
+          San Francisco, CA 94114 · USA<br />
+          ap@meridian.health
+        </address>
+      </div>
+      <div class="party">
+        <div class="party-label">Project</div>
+        <div class="party-name">Q2 Operations Platform</div>
+        <address>
+          PO-2026-118<br />
+          Contract: MSA-2024-08<br />
+          Billing period: Apr 1 – Apr 30
+        </address>
+      </div>
+    </section>
+
+    <!-- Line items -->
+    <section class="lines-wrap">
+      <table class="lines">
+        <thead>
+          <tr>
+            <th class="col-desc">Description</th>
+            <th class="num col-qty">Qty</th>
+            <th class="num col-rate">Unit rate</th>
+            <th class="num col-amt">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="item-name">Growth Platform — Monthly subscription</div>
+              <div class="item-sub">Unlimited users, SAML SSO, priority support</div>
+            </td>
+            <td class="num">1</td>
+            <td class="num">$1,200.00</td>
+            <td class="num">$1,200.00</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">Premium onboarding &amp; migration</div>
+              <div class="item-sub">One-time · Includes data import and go-live workshop</div>
+            </td>
+            <td class="num">1</td>
+            <td class="num">$2,500.00</td>
+            <td class="num">$2,500.00</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">Dedicated customer engineer</div>
+              <div class="item-sub">10 hours at $180/hr · Signed off Apr 3</div>
+            </td>
+            <td class="num">10</td>
+            <td class="num">$180.00</td>
+            <td class="num">$1,800.00</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">Additional workspace</div>
+              <div class="item-sub">Meridian Labs · prorated</div>
+            </td>
+            <td class="num">1</td>
+            <td class="num">$250.00</td>
+            <td class="num">$250.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Totals + payment -->
+    <section class="foot-grid">
+      <div class="payment">
+        <h3>Payment instructions</h3>
+        <dl class="pay-list">
+          <div><dt>Bank</dt><dd>First Republic Bank</dd></div>
+          <div><dt>Account name</dt><dd>Northwind Systems, Inc.</dd></div>
+          <div><dt>Routing (ACH)</dt><dd class="mono">021 000 021</dd></div>
+          <div><dt>Account number</dt><dd class="mono">•••• •••• 4418</dd></div>
+          <div><dt>Reference</dt><dd class="mono">INV-2026-004</dd></div>
+        </dl>
+        <p class="pay-note muted">Payment due within 14 days. Invoices past due accrue 1.5% per month.</p>
+      </div>
+      <div class="totals">
+        <div class="total-row">
+          <span>Subtotal</span>
+          <span class="num">$5,750.00</span>
+        </div>
+        <div class="total-row">
+          <span>Discount (MSA · 5%)</span>
+          <span class="num">−$287.50</span>
+        </div>
+        <div class="total-row">
+          <span>Tax (CA · 8.625%)</span>
+          <span class="num">$471.67</span>
+        </div>
+        <div class="total-row grand">
+          <span>Amount due</span>
+          <span class="num">$5,934.17</span>
+        </div>
+        <div class="due-note">Due on <strong>April 19, 2026</strong></div>
+      </div>
+    </section>
+
+    <!-- Signature / thanks -->
+    <footer class="sheet-foot">
       <div>
-        <h2>Bill to</h2>
-        <p>Client Name<br />123 Market Street<br />City, ST 00000</p>
+        <div class="thanks">Thank you for your business.</div>
+        <p class="muted">Questions? Reply to this email or contact <a href="#">finance@northwind.com</a>. We're here to help.</p>
       </div>
-      <div class="align-end">
-        <p><strong>Date</strong> April 3, 2026</p>
-        <p><strong>Due</strong> April 17, 2026</p>
+      <div class="sig-block">
+        <div class="sig-line" aria-hidden="true"></div>
+        <div class="sig-name">Sarah Chen</div>
+        <div class="sig-role">Head of Finance · Northwind Systems</div>
       </div>
-    </section>
-
-    <table class="lines">
-      <thead>
-        <tr>
-          <th>Description</th>
-          <th class="num">Qty</th>
-          <th class="num">Rate</th>
-          <th class="num">Amount</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Professional services</td>
-          <td class="num">1</td>
-          <td class="num">$1,200.00</td>
-          <td class="num">$1,200.00</td>
-        </tr>
-        <tr>
-          <td>Add-on: priority support</td>
-          <td class="num">1</td>
-          <td class="num">$150.00</td>
-          <td class="num">$150.00</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <section class="totals">
-      <div class="row"><span>Subtotal</span><span>$1,350.00</span></div>
-      <div class="row"><span>Tax</span><span>$0.00</span></div>
-      <div class="row total"><span>Total</span><span>$1,350.00</span></div>
-    </section>
-
-    <footer class="footer muted">
-      <p>Thank you for your business. Edit this HTML in VA Studio — preview updates via the built-in static server.</p>
     </footer>
   </main>
 </body>
